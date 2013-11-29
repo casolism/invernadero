@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace MISEC.ISW.Temperatura.Servicios.DTO
+{
+    public class TemperaturaDTO
+    {
+        public int IdSensor { get; set; }
+        public double Sensor { get; set; }
+        public DateTime Fecha { get; set; }
+        public int Estado { get; set; }
+        public string SetPointEstado { get; set; }
+    }
+}
