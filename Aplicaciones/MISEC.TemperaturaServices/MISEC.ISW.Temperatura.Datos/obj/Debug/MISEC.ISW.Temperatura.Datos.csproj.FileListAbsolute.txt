@@ -1,0 +1,6 @@
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\bin\Debug\MISEC.ISW.Temperatura.Datos.dll
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\bin\Debug\MISEC.ISW.Temperatura.Datos.pdb
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\bin\Debug\BLToolkit.4.dll
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\obj\Debug\ResolveAssemblyReference.cache
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\obj\Debug\MISEC.ISW.Temperatura.Datos.dll
+D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Datos\obj\Debug\MISEC.ISW.Temperatura.Datos.pdb
