@@ -9,3 +9,14 @@ D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.Temperatu
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\ResolveAssemblyReference.cache
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\MISEC.ISW.Temperatura.Servicios.dll
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\MISEC.ISW.Temperatura.Servicios.pdb
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\MISEC.ISW.Temperatura.Servicios.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\MISEC.ISW.Temperatura.Servicios.pdb
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\AutoMapper.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\AutoMapper.Net4.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\BLToolkit.4.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\MISEC.ISW.Temperatura.Datos.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\MISEC.ISW.Temperatura.Datos.pdb
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\bin\AutoMapper.xml
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\ResolveAssemblyReference.cache
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\MISEC.ISW.Temperatura.Servicios.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.Servicios\obj\Debug\MISEC.ISW.Temperatura.Servicios.pdb

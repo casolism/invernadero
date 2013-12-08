@@ -3,3 +3,8 @@ D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.Temperatu
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\ResolveAssemblyReference.cache
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\MISEC.ISW.Temperatura.UI.dll
 D:\MISEC\introperabilidad sist web\servicios\TemperaturaServices\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\MISEC.ISW.Temperatura.UI.pdb
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\bin\MISEC.ISW.Temperatura.UI.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\bin\MISEC.ISW.Temperatura.UI.pdb
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\MISEC.ISW.Temperatura.UI.dll
+D:\MISEC\git\invernadero\Aplicaciones\MISEC.TemperaturaServices\MISEC.ISW.Temperatura.UI\obj\Debug\MISEC.ISW.Temperatura.UI.pdb

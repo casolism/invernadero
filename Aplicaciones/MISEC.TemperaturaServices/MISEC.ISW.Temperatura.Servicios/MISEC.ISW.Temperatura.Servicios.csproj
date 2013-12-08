@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SetPointServices.asmx" />
-    <Content Include="TemperaturaServices.asmx" />
+    <Content Include="SensorServices.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -71,16 +71,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\TemperaturaEstadoDTO.cs" />
+    <Compile Include="DTO\SensorEstadoDTO.cs" />
     <Compile Include="DTO\SetPointDTO.cs" />
-    <Compile Include="DTO\TemperaturaDTO.cs" />
+    <Compile Include="DTO\SensorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetPointServices.asmx.cs">
       <DependentUpon>SetPointServices.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TemperaturaServices.asmx.cs">
-      <DependentUpon>TemperaturaServices.asmx</DependentUpon>
+    <Compile Include="SensorServices.asmx.cs">
+      <DependentUpon>SensorServices.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
