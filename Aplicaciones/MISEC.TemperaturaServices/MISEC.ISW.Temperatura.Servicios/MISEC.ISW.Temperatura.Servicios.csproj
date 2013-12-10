@@ -60,6 +60,8 @@
   <ItemGroup>
     <Content Include="SetPointServices.asmx" />
     <Content Include="SensorServices.asmx" />
+    <Content Include="TemporadaServices.asmx" />
+    <Content Include="UsuariosServices.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -71,6 +73,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="DTO\HorarioDTO.cs" />
+    <Compile Include="DTO\TemporadaDTO.cs" />
     <Compile Include="DTO\SensorEstadoDTO.cs" />
     <Compile Include="DTO\SetPointDTO.cs" />
     <Compile Include="DTO\SensorDTO.cs" />
@@ -81,6 +86,14 @@
     </Compile>
     <Compile Include="SensorServices.asmx.cs">
       <DependentUpon>SensorServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TemporadaServices.asmx.cs">
+      <DependentUpon>TemporadaServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UsuariosServices.asmx.cs">
+      <DependentUpon>UsuariosServices.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

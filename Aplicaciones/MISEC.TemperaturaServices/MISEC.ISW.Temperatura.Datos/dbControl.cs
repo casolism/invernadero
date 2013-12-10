@@ -91,6 +91,5 @@ namespace MISEC.ISW.Temperatura.Datos
             [Association(ThisKey = "IdTemporada", OtherKey = "IdTemporada")]
             public List<Horario> ListaHorarios;
         }
-
     }
 }

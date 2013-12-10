@@ -119,5 +119,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             }
             return lista;
         }
+
+   
     }
+
 }
