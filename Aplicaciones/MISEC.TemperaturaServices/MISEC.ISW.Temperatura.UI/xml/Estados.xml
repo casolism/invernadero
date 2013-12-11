@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tabla>
+  <Row>
+    <estado> Alto </estado>
+  </Row>
+  <Row>
+    <estado> Normal </estado>
+  </Row>
+  <Row>
+    <estado> Bajo </estado>
+  </Row>
+  
+</Tabla>

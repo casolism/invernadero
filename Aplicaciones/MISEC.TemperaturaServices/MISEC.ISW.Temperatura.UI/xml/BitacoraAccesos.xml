@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tablabitacora>
+  <bitacora>
+    <usuario> Denisse </usuario>
+    <descripcion>Registro de usuario</descripcion>
+    <fecha>9-12-2013 </fecha>
+    <tipo> Acceso </tipo>
+  </bitacora>
+  <bitacora>
+    <usuario> Denisse </usuario>
+    <descripcion>Modifico datos del usuario x</descripcion>
+    <fecha>9-12-2013 </fecha>
+    <tipo> Acceso </tipo>
+  </bitacora>
+  <bitacora>
+    <usuario> Denisse </usuario>
+    <descripcion>Consulta de setpoint</descripcion>
+    <fecha>9-12-2013 </fecha>
+    <tipo> Acceso </tipo>
+  </bitacora>
+</tablabitacora>

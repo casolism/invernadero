@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="NoSesion.master.cs" Inherits="NoSesion" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+  
+    <!--Hoja de estilos aplicacion -->
+    <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!--Hoja de estilos JQuery -->
+    <link href="css/jQuery/sunny/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body style="font-family:Calibri;font-size:medium">
+    <form id="form1" runat="server">
+    <div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">CONTROL INVERNADERO</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+                <li class="current_page_item">&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+                <li>&nbsp;</li>
+                <li>&nbsp;</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div>&nbsp;</div>
+
+        <div id="wrapper">
+        <div id="page" class="container">
+		<div id="content">
+        <asp:ContentPlaceHolder id="Contenido" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div></div></div>
+    </form>
+    <div id="copyright" class="container">
+	<p>Maestria en Ingenieria de Sistemas Electrónicos y Computacionales |  MISEC  | 2013</p>
+</div>
+
+</body>
+</html>

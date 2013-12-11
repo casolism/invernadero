@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<temporadas>
+  <temporada>
+    <idtemporada> 1 </idtemporada>
+    <descripcion> Primavera </descripcion>
+  </temporada>
+  <temporada>
+    <idtemporada> 2 </idtemporada>
+    <descripcion> Verano </descripcion>
+  </temporada>
+  <temporada>
+    <idtemporada> 5 </idtemporada>
+    <descripcion> Invierno </descripcion>
+  </temporada>
+</temporadas>
+
+
+

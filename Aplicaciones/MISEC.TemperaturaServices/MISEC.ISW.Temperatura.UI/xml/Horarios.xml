@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<horarios>
+  <horario>
+    <temporada> Primavera </temporada>
+    <inicio> 8:00 </inicio>
+    <fin> 10:00 </fin>
+    <descripcion>Horario dia</descripcion>
+  </horario>
+  <horario>
+    <temporada> Primavera </temporada>
+    <inicio> 10:30 </inicio>
+    <fin> 15:00 </fin>
+    <descripcion> Tarde </descripcion>
+  </horario>
+  <horario>
+    <temporada> Primavera </temporada>
+    <inicio> 21:00 </inicio>
+    <fin> 23:00 </fin>
+    <descripcion> Noche </descripcion>
+  </horario>
+  <horario>
+    <temporada>  </temporada>
+    <inicio> 1:00 </inicio>
+    <fin> 23:00 </fin>
+    <descripcion> Noche </descripcion>
+  </horario>
+</horarios>

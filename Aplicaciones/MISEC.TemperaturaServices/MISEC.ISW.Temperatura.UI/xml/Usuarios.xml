@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TablaUsuarios>
+  <usuarios>
+    <usuario> Deny </usuario>
+    <password> 123 </password>
+    <nivel> 1 </nivel>
+  </usuarios>
+  <usuarios>
+    <usuario> Carlos </usuario>
+    <password> carlos </password>
+    <nivel> 3 </nivel>
+  </usuarios>
+  <usuarios>
+    <usuario> Perla </usuario>
+    <password> corona </password>
+    <nivel> 5 </nivel>
+  </usuarios>
+</TablaUsuarios>

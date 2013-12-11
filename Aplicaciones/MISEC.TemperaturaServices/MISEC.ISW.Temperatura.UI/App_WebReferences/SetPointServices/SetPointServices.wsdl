@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SeleccionaSetPointG">
+        <s:complexType />
+      </s:element>
+      <s:element name="SeleccionaSetPointGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionaSetPointGResult" type="tns:ArrayOfSetPointDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSetPointDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SetPointDTO" nillable="true" type="tns:SetPointDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SetPointDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSetPoint" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="limiteMin" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="limiteMax" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Activo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SeleccionaSetPointI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSetpoint" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionaSetPointIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionaSetPointIResult" type="tns:SetPointDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertaSetPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variable" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LimiteMin" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="LimiteMax" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertaSetPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertaSetPointResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaSetPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSetPoint" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Variable" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LimiteMin" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="LimiteMax" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaSetPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaSetPointResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaSetPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSetPoint" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaSetPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminaSetPointResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneSetPointsXHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Horario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneSetPointsXHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtieneSetPointsXHorarioResult" type="tns:ArrayOfSetPointDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneSetPointsXTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Temporada" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneSetPointsXTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtieneSetPointsXTemporadaResult" type="tns:ArrayOfSetPointDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SeleccionaSetPointGSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionaSetPointG" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionaSetPointGSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionaSetPointGResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionaSetPointISoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionaSetPointI" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionaSetPointISoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionaSetPointIResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertaSetPointSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertaSetPoint" />
+  </wsdl:message>
+  <wsdl:message name="InsertaSetPointSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertaSetPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaSetPointSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaSetPoint" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaSetPointSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaSetPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminaSetPointSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminaSetPoint" />
+  </wsdl:message>
+  <wsdl:message name="EliminaSetPointSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminaSetPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSetPointsXHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneSetPointsXHorario" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSetPointsXHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneSetPointsXHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSetPointsXTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneSetPointsXTemporada" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneSetPointsXTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneSetPointsXTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SetPointServicesSoap">
+    <wsdl:operation name="SeleccionaSetPointG">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene setpoints desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:SeleccionaSetPointGSoapIn" />
+      <wsdl:output message="tns:SeleccionaSetPointGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionaSetPointI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene setpoints desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:SeleccionaSetPointISoapIn" />
+      <wsdl:output message="tns:SeleccionaSetPointISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaSetPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta setpoint en la BD</wsdl:documentation>
+      <wsdl:input message="tns:InsertaSetPointSoapIn" />
+      <wsdl:output message="tns:InsertaSetPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaSetPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza setpoint en la BD</wsdl:documentation>
+      <wsdl:input message="tns:ActualizaSetPointSoapIn" />
+      <wsdl:output message="tns:ActualizaSetPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina setpoint en la BD</wsdl:documentation>
+      <wsdl:input message="tns:EliminaSetPointSoapIn" />
+      <wsdl:output message="tns:EliminaSetPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXHorario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene valores de setpoints por Horario en la BD</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneSetPointsXHorarioSoapIn" />
+      <wsdl:output message="tns:ObtieneSetPointsXHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene valores de sensado desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneSetPointsXTemporadaSoapIn" />
+      <wsdl:output message="tns:ObtieneSetPointsXTemporadaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SetPointServicesSoap" type="tns:SetPointServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SeleccionaSetPointG">
+      <soap:operation soapAction="http://tempuri.org/SeleccionaSetPointG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionaSetPointI">
+      <soap:operation soapAction="http://tempuri.org/SeleccionaSetPointI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertaSetPoint">
+      <soap:operation soapAction="http://tempuri.org/InsertaSetPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaSetPoint">
+      <soap:operation soapAction="http://tempuri.org/ActualizaSetPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <soap:operation soapAction="http://tempuri.org/EliminaSetPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXHorario">
+      <soap:operation soapAction="http://tempuri.org/ObtieneSetPointsXHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXTemporada">
+      <soap:operation soapAction="http://tempuri.org/ObtieneSetPointsXTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SetPointServicesSoap12" type="tns:SetPointServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SeleccionaSetPointG">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionaSetPointG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionaSetPointI">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionaSetPointI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertaSetPoint">
+      <soap12:operation soapAction="http://tempuri.org/InsertaSetPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaSetPoint">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaSetPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <soap12:operation soapAction="http://tempuri.org/EliminaSetPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXHorario">
+      <soap12:operation soapAction="http://tempuri.org/ObtieneSetPointsXHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSetPointsXTemporada">
+      <soap12:operation soapAction="http://tempuri.org/ObtieneSetPointsXTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SetPointServices">
+    <wsdl:port name="SetPointServicesSoap" binding="tns:SetPointServicesSoap">
+      <soap:address location="http://localhost:23053/SetPointServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SetPointServicesSoap12" binding="tns:SetPointServicesSoap12">
+      <soap12:address location="http://localhost:23053/SetPointServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

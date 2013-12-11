@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Niveles>
+  <nivel>
+    <id> 1 </id>
+    <descripcion> 1. Acceso a Todo </descripcion>
+  </nivel>
+  <nivel>
+    <id> 2 </id>
+    <descripcion> 2. Control y monitoreo</descripcion>
+  </nivel>
+  <nivel>
+    <id> 3 </id>
+    <descripcion> 3. Solo monitoreo </descripcion>
+  </nivel>
+  <nivel>
+    <id> 4 </id>
+    <descripcion> 4. Solo consultas </descripcion>
+  </nivel>
+  <nivel>
+    <id> 5 </id>
+    <descripcion> 5. Escritorio </descripcion>
+  </nivel>
+</Niveles>
