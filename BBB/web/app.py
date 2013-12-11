@@ -1,0 +1,17 @@
+from flask import Flask, render_template
+app=Flask(__name__) 
+import datetime 
+@app.route("/") 
+def index():
+	now = datetime.datetime.now()
+	timeString = now.strftime("%Y-%m-%d %H:%M")
+	templateData = {'title': 'Hello', 'time': timeString}
+	return render_template("web.html", **templateData)
+@app.route("/acercade")
+def acercade():
+	return render_template("acercade.html")
+@app.route("/links")
+def links():
+	return render_template("links.html")	
+if __name__ == "__main__":
+	app.run(host="0.0.0.0", port=81, debug=True)
