@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="ConsultasServices.asmx.cs">
       <DependentUpon>ConsultasServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DTO\BitacoraDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />

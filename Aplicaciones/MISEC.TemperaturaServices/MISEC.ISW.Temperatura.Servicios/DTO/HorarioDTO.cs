@@ -7,10 +7,10 @@ namespace MISEC.ISW.Temperatura.Servicios.DTO
 {
     public class HorarioDTO
     {
-        public int IdHorario{ get; set; }
-        public string Descripcion{ get; set; }
-        public DateTime HoraInicio{ get; set; }
-        public DateTime HoraFin{ get; set; }
-        public string TemporadaDescripcion{ get; set; }
+        public int IdHorario { get; set; }
+        public string Descripcion { get; set; }
+        public DateTime Inicio { get; set; }
+        public DateTime Fin { get; set; }
+        public string TemporadaDescripcion { get; set; }
     }
 }

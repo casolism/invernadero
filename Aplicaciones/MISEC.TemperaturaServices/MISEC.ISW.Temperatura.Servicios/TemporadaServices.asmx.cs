@@ -39,20 +39,32 @@ namespace MISEC.ISW.Temperatura.Servicios
             return AutoMapper.Mapper.Map<List<TemporadaDTO>>(lista);
         }
 
+        [WebMethod(Description = "Elimina Temporada en la BD")]
+        public bool EliminaTemporada(int Id)
+        {
+            dbControlManager db = new dbControlManager();
+            var eliminados = db.Temporada.Where(e => e.IdTemporada == Id).Delete();
+            return eliminados > 0;
+        }
+
         [WebMethod(Description = "Activa o descativa setpoints de la temporada")]
         public void ActivaTemporada(int IdTemporada, bool Activar)
         {
             dbControlManager db = new dbControlManager();
             string valor = Activar ? "S" : "N";
+            List<int> Actualizar = new List<int>();
             var query =
                     from h in db.Horario
                     from s in db.SetPoint
                     where h.IdHorario == s.IdHorario
                     && h.IdTemporada == IdTemporada
-                     select s;
-            foreach (var sp in query) {
-                db.SetPoint.Where(e => e.IdSetPoint == sp.IdSetPoint).Set(e => e.Activo, valor).Update();
-            }
+                    select s.IdSetPoint;
+            foreach (var sp in query)
+                Actualizar.Add(sp);
+            db.Close();
+            db = new dbControlManager();
+            foreach (var value in Actualizar)
+                db.SetPoint.Where(e => e.IdSetPoint == value).Set(e => e.Activo, valor).Update();
         }
 
         [WebMethod(Description = "Actualiza Temporada en la BD")]
@@ -75,14 +87,14 @@ namespace MISEC.ISW.Temperatura.Servicios
         #region Horarios
 
         [WebMethod(Description = "Inserta Horario asociado a una temporada")]
-        public int RegistraHorarioEnTemporada(string Descripcion,DateTime HoraInicio,DateTime HoraFin,int IdTemporada)
+        public int RegistraHorarioEnTemporada(string Descripcion, DateTime HoraInicio, DateTime HoraFin, int IdTemporada)
         {
             dbControlManager db = new dbControlManager();
             var idInsertado = db.Horario.InsertWithIdentity(() => new dbControl.Horario
             {
                 Descripcion = Descripcion,
-                HoraInicio = HoraInicio,
-                HoraFin = HoraFin,
+                Inicio = HoraInicio,
+                Fin = HoraFin,
                 IdTemporada = IdTemporada
             });
             return Convert.ToInt32(idInsertado);
@@ -95,8 +107,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             var idInsertado = db.Horario.InsertWithIdentity(() => new dbControl.Horario
             {
                 Descripcion = Descripcion,
-                HoraInicio = HoraInicio,
-                HoraFin = HoraFin
+                Inicio = HoraInicio,
+                Fin = HoraFin
             });
             return Convert.ToInt32(idInsertado);
         }
@@ -114,8 +126,8 @@ namespace MISEC.ISW.Temperatura.Servicios
                     {
                         h.IdHorario,
                         h.Descripcion,
-                        h.HoraInicio,
-                        h.HoraFin,
+                        h.Inicio,
+                        h.Fin,
                         TemporadaDescripcion = h.Descripcion
                     };
             foreach (var item in query)
@@ -124,8 +136,8 @@ namespace MISEC.ISW.Temperatura.Servicios
                 {
                     Descripcion = item.Descripcion,
                     IdHorario = item.IdHorario,
-                    HoraInicio = item.HoraInicio,
-                    HoraFin = item.HoraInicio,
+                    Inicio = item.Inicio,
+                    Fin = item.Inicio,
                     TemporadaDescripcion = item.TemporadaDescripcion
                 });
             }
@@ -135,8 +147,8 @@ namespace MISEC.ISW.Temperatura.Servicios
         [WebMethod(Description = "Obtiene setpoints desde la BD")]
         public List<HorarioDTO> ObtieneHorarios()
         {
-            AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
-            IList<dbControl.Horario> lista = new dbControlManager().Horario.Where(c=>c.IdTemporada==null).ToList();
+            AutoMapper.Mapper.CreateMap<dbControl.Horario, HorarioDTO>();
+            IList<dbControl.Horario> lista = new dbControlManager().Horario.Where(c => c.IdTemporada == null).ToList();
             return AutoMapper.Mapper.Map<List<HorarioDTO>>(lista);
         }
 
@@ -149,7 +161,7 @@ namespace MISEC.ISW.Temperatura.Servicios
         }
 
         [WebMethod(Description = "Actualiza Temporada en la BD")]
-        public bool ActualizaHorario(string Descripcion, DateTime HoraInicio, DateTime HoraFin,int IdTemporada)
+        public bool ActualizaHorario(string Descripcion, DateTime HoraInicio, DateTime HoraFin, int IdTemporada)
         {
             dbControlManager db = new dbControlManager();
             var actualizados = db.Temporada.Where(e => e.IdTemporada == IdTemporada)
@@ -158,14 +170,14 @@ namespace MISEC.ISW.Temperatura.Servicios
         }
 
         [WebMethod(Description = "Actualiza Temporada en la BD")]
-        public bool ActualizaHorarioEnTemporada(int IdHorario,string Descripcion, DateTime HoraInicio, DateTime HoraFin)
+        public bool ActualizaHorarioEnTemporada(int IdHorario, string Descripcion, DateTime HoraInicio, DateTime HoraFin)
         {
             dbControlManager db = new dbControlManager();
             var actualizados = db.Horario.Where(e => e.IdHorario == IdHorario)
                                                     .Set(e => e.Descripcion, Descripcion).Update();
             return actualizados > 0;
         }
-        
+
         [WebMethod(Description = "Elimina Temporada en la BD")]
         public bool EliminaHorario(int IdHorario)
         {
@@ -173,7 +185,7 @@ namespace MISEC.ISW.Temperatura.Servicios
             var eliminados = db.Horario.Where(e => e.IdHorario == IdHorario).Delete();
             return eliminados > 0;
         }
-        
+
         #endregion
 
     }
