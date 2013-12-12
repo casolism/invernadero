@@ -39,6 +39,14 @@ namespace MISEC.ISW.Temperatura.Servicios
             return AutoMapper.Mapper.Map<List<TemporadaDTO>>(lista);
         }
 
+        [WebMethod(Description = "Elimina Temporada en la BD")]
+        public bool EliminaTemporada(int Id)
+        {
+            dbControlManager db = new dbControlManager();
+            var eliminados = db.Temporada.Where(e => e.IdTemporada == Id).Delete();
+            return eliminados > 0;
+        }
+
         [WebMethod(Description = "Activa o descativa setpoints de la temporada")]
         public void ActivaTemporada(int IdTemporada, bool Activar)
         {
@@ -81,8 +89,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             var idInsertado = db.Horario.InsertWithIdentity(() => new dbControl.Horario
             {
                 Descripcion = Descripcion,
-                HoraInicio = HoraInicio,
-                HoraFin = HoraFin,
+                Inicio = HoraInicio,
+                Fin = HoraFin,
                 IdTemporada = IdTemporada
             });
             return Convert.ToInt32(idInsertado);
@@ -95,8 +103,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             var idInsertado = db.Horario.InsertWithIdentity(() => new dbControl.Horario
             {
                 Descripcion = Descripcion,
-                HoraInicio = HoraInicio,
-                HoraFin = HoraFin
+                Inicio = HoraInicio,
+                Fin = HoraFin
             });
             return Convert.ToInt32(idInsertado);
         }
@@ -114,8 +122,8 @@ namespace MISEC.ISW.Temperatura.Servicios
                     {
                         h.IdHorario,
                         h.Descripcion,
-                        h.HoraInicio,
-                        h.HoraFin,
+                        h.Inicio,
+                        h.Fin,
                         TemporadaDescripcion = h.Descripcion
                     };
             foreach (var item in query)
@@ -124,8 +132,8 @@ namespace MISEC.ISW.Temperatura.Servicios
                 {
                     Descripcion = item.Descripcion,
                     IdHorario = item.IdHorario,
-                    HoraInicio = item.HoraInicio,
-                    HoraFin = item.HoraInicio,
+                    Inicio = item.Inicio,
+                    Fin = item.Inicio,
                     TemporadaDescripcion = item.TemporadaDescripcion
                 });
             }
