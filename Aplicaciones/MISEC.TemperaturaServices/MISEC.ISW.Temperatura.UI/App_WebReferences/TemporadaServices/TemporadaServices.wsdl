@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegistraTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistraTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistraTemporadaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneTemporadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtieneTemporadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtieneTemporadasResult" type="tns:ArrayOfTemporadaDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTemporadaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TemporadaDTO" nillable="true" type="tns:TemporadaDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TemporadaDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActivaTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Activar" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivaTemporadaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActualizaTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaTemporadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaSetPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaSetPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminaSetPointResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistraHorarioEnTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraFin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistraHorarioEnTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistraHorarioEnTemporadaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistraHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraFin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistraHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistraHorarioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneHorariosPorTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtieneHorariosPorTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtieneHorariosPorTemporadaResult" type="tns:ArrayOfHorarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioDTO" nillable="true" type="tns:HorarioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdHorario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraFin" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TemporadaDescripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtieneHorarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtieneHorariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtieneHorariosResult" type="tns:ArrayOfHorarioDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivaHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdHorario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Activar" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivaHorarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActualizaHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraFin" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTemporada" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaHorarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaHorarioEnTemporada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdHorario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="HoraFin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizaHorarioEnTemporadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizaHorarioEnTemporadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaHorario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdHorario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminaHorarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminaHorarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistraTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistraTemporada" />
+  </wsdl:message>
+  <wsdl:message name="RegistraTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistraTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneTemporadasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneTemporadas" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneTemporadasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneTemporadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivaTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActivaTemporada" />
+  </wsdl:message>
+  <wsdl:message name="ActivaTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActivaTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaTemporada" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminaSetPointSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminaSetPoint" />
+  </wsdl:message>
+  <wsdl:message name="EliminaSetPointSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminaSetPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistraHorarioEnTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistraHorarioEnTemporada" />
+  </wsdl:message>
+  <wsdl:message name="RegistraHorarioEnTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistraHorarioEnTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistraHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistraHorario" />
+  </wsdl:message>
+  <wsdl:message name="RegistraHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistraHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneHorariosPorTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneHorariosPorTemporada" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneHorariosPorTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneHorariosPorTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneHorariosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtieneHorarios" />
+  </wsdl:message>
+  <wsdl:message name="ObtieneHorariosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtieneHorariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivaHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ActivaHorario" />
+  </wsdl:message>
+  <wsdl:message name="ActivaHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ActivaHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaHorario" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaHorarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaHorarioEnTemporadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizaHorarioEnTemporada" />
+  </wsdl:message>
+  <wsdl:message name="ActualizaHorarioEnTemporadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizaHorarioEnTemporadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminaHorarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminaHorario" />
+  </wsdl:message>
+  <wsdl:message name="EliminaHorarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminaHorarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TemporadaServicesSoap">
+    <wsdl:operation name="RegistraTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta Temporada</wsdl:documentation>
+      <wsdl:input message="tns:RegistraTemporadaSoapIn" />
+      <wsdl:output message="tns:RegistraTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneTemporadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene setpoints desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneTemporadasSoapIn" />
+      <wsdl:output message="tns:ObtieneTemporadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivaTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Activa o descativa setpoints de la temporada</wsdl:documentation>
+      <wsdl:input message="tns:ActivaTemporadaSoapIn" />
+      <wsdl:output message="tns:ActivaTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza Temporada en la BD</wsdl:documentation>
+      <wsdl:input message="tns:ActualizaTemporadaSoapIn" />
+      <wsdl:output message="tns:ActualizaTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina Temporada en la BD</wsdl:documentation>
+      <wsdl:input message="tns:EliminaSetPointSoapIn" />
+      <wsdl:output message="tns:EliminaSetPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorarioEnTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta Horario asociado a una temporada</wsdl:documentation>
+      <wsdl:input message="tns:RegistraHorarioEnTemporadaSoapIn" />
+      <wsdl:output message="tns:RegistraHorarioEnTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta Horario sin temporada</wsdl:documentation>
+      <wsdl:input message="tns:RegistraHorarioSoapIn" />
+      <wsdl:output message="tns:RegistraHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorariosPorTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene setpoints desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneHorariosPorTemporadaSoapIn" />
+      <wsdl:output message="tns:ObtieneHorariosPorTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorarios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene setpoints desde la BD</wsdl:documentation>
+      <wsdl:input message="tns:ObtieneHorariosSoapIn" />
+      <wsdl:output message="tns:ObtieneHorariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivaHorario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Activa o descativa setpoints de la temporada</wsdl:documentation>
+      <wsdl:input message="tns:ActivaHorarioSoapIn" />
+      <wsdl:output message="tns:ActivaHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza Temporada en la BD</wsdl:documentation>
+      <wsdl:input message="tns:ActualizaHorarioSoapIn" />
+      <wsdl:output message="tns:ActualizaHorarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorarioEnTemporada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza Temporada en la BD</wsdl:documentation>
+      <wsdl:input message="tns:ActualizaHorarioEnTemporadaSoapIn" />
+      <wsdl:output message="tns:ActualizaHorarioEnTemporadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaHorario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Elimina Temporada en la BD</wsdl:documentation>
+      <wsdl:input message="tns:EliminaHorarioSoapIn" />
+      <wsdl:output message="tns:EliminaHorarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TemporadaServicesSoap" type="tns:TemporadaServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistraTemporada">
+      <soap:operation soapAction="http://tempuri.org/RegistraTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneTemporadas">
+      <soap:operation soapAction="http://tempuri.org/ObtieneTemporadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivaTemporada">
+      <soap:operation soapAction="http://tempuri.org/ActivaTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaTemporada">
+      <soap:operation soapAction="http://tempuri.org/ActualizaTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <soap:operation soapAction="http://tempuri.org/EliminaSetPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorarioEnTemporada">
+      <soap:operation soapAction="http://tempuri.org/RegistraHorarioEnTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorario">
+      <soap:operation soapAction="http://tempuri.org/RegistraHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorariosPorTemporada">
+      <soap:operation soapAction="http://tempuri.org/ObtieneHorariosPorTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorarios">
+      <soap:operation soapAction="http://tempuri.org/ObtieneHorarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivaHorario">
+      <soap:operation soapAction="http://tempuri.org/ActivaHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorario">
+      <soap:operation soapAction="http://tempuri.org/ActualizaHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorarioEnTemporada">
+      <soap:operation soapAction="http://tempuri.org/ActualizaHorarioEnTemporada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaHorario">
+      <soap:operation soapAction="http://tempuri.org/EliminaHorario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TemporadaServicesSoap12" type="tns:TemporadaServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistraTemporada">
+      <soap12:operation soapAction="http://tempuri.org/RegistraTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneTemporadas">
+      <soap12:operation soapAction="http://tempuri.org/ObtieneTemporadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivaTemporada">
+      <soap12:operation soapAction="http://tempuri.org/ActivaTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaTemporada">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaSetPoint">
+      <soap12:operation soapAction="http://tempuri.org/EliminaSetPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorarioEnTemporada">
+      <soap12:operation soapAction="http://tempuri.org/RegistraHorarioEnTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistraHorario">
+      <soap12:operation soapAction="http://tempuri.org/RegistraHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorariosPorTemporada">
+      <soap12:operation soapAction="http://tempuri.org/ObtieneHorariosPorTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneHorarios">
+      <soap12:operation soapAction="http://tempuri.org/ObtieneHorarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivaHorario">
+      <soap12:operation soapAction="http://tempuri.org/ActivaHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorario">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaHorarioEnTemporada">
+      <soap12:operation soapAction="http://tempuri.org/ActualizaHorarioEnTemporada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaHorario">
+      <soap12:operation soapAction="http://tempuri.org/EliminaHorario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TemporadaServices">
+    <wsdl:port name="TemporadaServicesSoap" binding="tns:TemporadaServicesSoap">
+      <soap:address location="http://localhost:23053/TemporadaServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TemporadaServicesSoap12" binding="tns:TemporadaServicesSoap12">
+      <soap12:address location="http://localhost:23053/TemporadaServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
