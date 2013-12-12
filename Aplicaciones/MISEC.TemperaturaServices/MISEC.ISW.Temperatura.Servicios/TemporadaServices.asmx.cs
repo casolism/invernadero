@@ -52,15 +52,19 @@ namespace MISEC.ISW.Temperatura.Servicios
         {
             dbControlManager db = new dbControlManager();
             string valor = Activar ? "S" : "N";
+            List<int> Actualizar = new List<int>();
             var query =
                     from h in db.Horario
                     from s in db.SetPoint
                     where h.IdHorario == s.IdHorario
                     && h.IdTemporada == IdTemporada
-                     select s;
-            foreach (var sp in query) {
-                db.SetPoint.Where(e => e.IdSetPoint == sp.IdSetPoint).Set(e => e.Activo, valor).Update();
-            }
+                     select s.IdSetPoint;
+            foreach (var sp in query)
+                Actualizar.Add(sp);
+            db.Close();
+            db = new dbControlManager();
+            foreach (var value in Actualizar)
+                db.SetPoint.Where(e => e.IdSetPoint == value).Set(e => e.Activo, valor).Update();
         }
 
         [WebMethod(Description = "Actualiza Temporada en la BD")]
@@ -143,7 +147,7 @@ namespace MISEC.ISW.Temperatura.Servicios
         [WebMethod(Description = "Obtiene setpoints desde la BD")]
         public List<HorarioDTO> ObtieneHorarios()
         {
-            AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
+            AutoMapper.Mapper.CreateMap<dbControl.Horario, HorarioDTO>();
             IList<dbControl.Horario> lista = new dbControlManager().Horario.Where(c=>c.IdTemporada==null).ToList();
             return AutoMapper.Mapper.Map<List<HorarioDTO>>(lista);
         }
