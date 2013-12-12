@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-public partial class Horario : System.Web.UI.Page
+public partial class HorarioConTemporada : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

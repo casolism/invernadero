@@ -74,11 +74,15 @@ public partial class ModificarSetPoint : System.Web.UI.Page
         {
             SetPointServices.SetPointServicesSoapClient wsInvernadero = new SetPointServices.SetPointServicesSoapClient();
             if (wsInvernadero.ActualizaSetPoint(int.Parse(lblIdSetPoint.Text), cmbVariables.SelectedValue.Trim(), double.Parse(txtLimiteMin.Text), double.Parse(txtLimiteMax.Text), cmbEstados.SelectedValue.Trim()))
-            lblIdSetPoint.Text = "Se ha modificado el SetPoint con ID: " + lblIdSetPoint.Text;
+            lblMensaje.Text = "Se ha modificado el SetPoint con ID: " + lblIdSetPoint.Text;
         }
         catch (Exception varEx)
         {
             lblMensaje.Text = varEx.Message;
         }
+    }
+    protected void btnRegresar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SetPoint.aspx");
     }
 }

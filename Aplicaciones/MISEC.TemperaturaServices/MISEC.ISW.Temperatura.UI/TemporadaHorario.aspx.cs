@@ -7,12 +7,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using TemporadaServices;
 
 
 public partial class TemporadaHorario : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+       if (!IsPostBack)
         ConsultarTemporadas();
     }
 
@@ -20,11 +22,10 @@ public partial class TemporadaHorario : System.Web.UI.Page
     {
         try
         {
-            DataSet ds = new DataSet();
-
-            ds.ReadXml(Server.MapPath("xml/Temporadas.xml"));
-
-            GridTemporadas.DataSource = ds.Tables[0];
+            TemporadaServices.TemporadaServicesSoapClient ws = new TemporadaServices.TemporadaServicesSoapClient();
+            IList<TemporadaDTO> temporadas = ws.ObtieneTemporadas();
+           
+            GridTemporadas.DataSource = temporadas;
             GridTemporadas.DataBind();
         }
         catch (UnauthorizedAccessException)
@@ -35,8 +36,18 @@ public partial class TemporadaHorario : System.Web.UI.Page
 
     protected void btnRegistrar_Click(object sender, EventArgs e)
     {
-      ClientScript.RegisterStartupScript(this.GetType(), "myScript", "mensaje();", true);
-        
+        try
+        {
+            //ClientScript.RegisterStartupScript(this.GetType(), "myScript", "mensaje();", true);
+            TemporadaServices.TemporadaServicesSoapClient ws = new TemporadaServices.TemporadaServicesSoapClient();
+            int idTemporada = ws.RegistraTemporada(txtTemporada.Text.Trim());
+            lblMensaje.Text = "Temporada registrada ID: " + idTemporada.ToString();
+            ConsultarTemporadas();
+        }
+        catch (Exception varEx)
+        {
+            lblMensaje.Text = varEx.Message;
+        }
     }
 
 
@@ -53,30 +64,35 @@ public partial class TemporadaHorario : System.Web.UI.Page
         {
             Session["idtemporada"] = r.Cells[0].Text.ToString();
             Session["temporada"] = r.Cells[1].Text.ToString();
-            Response.Redirect("Horario.aspx");
+            Response.Redirect("HorarioConTemporada.aspx");
         }
 
         //Activar temporada
         if (e.CommandName == "Activar")
         {
-            txtTemporada.Text = "Activar";
+            TemporadaServices.TemporadaServicesSoapClient ws = new TemporadaServices.TemporadaServicesSoapClient();
+            ws.ActivaTemporada(int.Parse(r.Cells[0].Text.ToString()),true);
         }
 
         //DesactivarTemprada
         if (e.CommandName == "Desactivar")
         {
-            txtTemporada.Text = "Descactivar";
+            TemporadaServices.TemporadaServicesSoapClient ws = new TemporadaServices.TemporadaServicesSoapClient();
+            ws.ActivaTemporada(int.Parse(r.Cells[0].Text.ToString()), false);
         }
 
         //Modificar temporada
         if (e.CommandName == "Modificar")
         {
-            Response.Redirect("ModificarTemporada.aspx");
+            Session["idtemporada"] = r.Cells[0].Text.ToString();
+            Session["temporada"] = r.Cells[1].Text.ToString();
+            Response.Redirect("ModificarTemporada.aspx?idTemporada=" + r.Cells[0].Text.ToString());
         }
 
         //Eliminar temporada
         if (e.CommandName == "Eliminar")
         {
+            //TemporadaServices.TemporadaServicesSoapClient ws = new TemporadaServices.TemporadaServicesSoapClient();
             
         }
     }

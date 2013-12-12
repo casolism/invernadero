@@ -23,10 +23,11 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTemporada" Display="Dynamic" ErrorMessage="Campo requerido" ForeColor="Red" ValidationGroup="valTemporada"></asp:RequiredFieldValidator>
             </td>
             <td class="auto-style4">
-                <asp:Button ID="btnModificar" runat="server" Text="Modificar" ValidationGroup="valTemporada" />
+                <asp:Button ID="btnModificar" runat="server" Text="Modificar" ValidationGroup="valTemporada" OnClick="btnModificar_Click" />
             </td>
             <td>
-                &nbsp;</td>
+                <asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="Regresar" />
+            </td>
         </tr>
         <tr>
             <td class="auto-style5" colspan="4">
