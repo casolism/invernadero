@@ -27,7 +27,7 @@ namespace MISEC.ISW.Temperatura.Datos
             public string Descripcion;
             public DateTime Fecha;
             public string Tipo;
-            public int? IdUsuario;
+            public string IdUsuario;
             [Association(ThisKey = "IdUsuario", OtherKey = "IdUsuario", CanBeNull = false)]
             public Usuario Usuario;        
         }        
