@@ -5,7 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" Runat="Server">
     <table class="auto-style1">
         <tr>
-            <td colspan="4">MODIFICAR SETPOINT</td>
+            <td colspan="4"><div class="title">
+				<h1>MODIFICAR SETPOINT</h1>
+				</div></td>
         </tr>
         <tr>
             <td colspan="4">ID del SetPoint:&nbsp;
@@ -38,6 +40,8 @@
                 </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnRegresar" runat="server" OnClick="btnRegresar_Click" Text="SetPoints" />
             </td>
         </tr>
         <tr>

@@ -9,8 +9,8 @@
         <tr>
             <td colspan="2">
                <div class="title">
-				<h1>ADMINISTRACIÓN DE USUARIOS</h1>
-               </div>
+				<h1>ADMINISTRACION DE USUARIOS</h1>
+				<span class="byline">REGISTAR MODIFICAR ELIMINAR</span></div>
                 </td>
         </tr>
         <tr>
@@ -42,7 +42,12 @@
             </td>
             <td>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="124px"/>
+                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="124px" OnClick="btnRegistrar_Click"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <asp:Label ID="lblMensaje" runat="server" Font-Bold="True" ForeColor="#CC9900"></asp:Label>
             </td>
         </tr>
         </table>
@@ -54,17 +59,17 @@
             <td>&nbsp;</td>
             <td style="text-align: center">
                 <br />
-                <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                <asp:GridView ID="GridUsuarios" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridUsuarios_RowCommand">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField HeaderText="Usuario" DataField="usuario" />
+                        <asp:BoundField HeaderText="Usuario" DataField="idusuario" />
                         <asp:BoundField HeaderText="Password" DataField="password" />
                         <asp:BoundField HeaderText="Nivel" DataField="nivel" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:ImageButton ID="imgModificar" runat="server" CommandName="Modificar" Height="32px" ImageUrl="~/images/Actions-user-properties-icon.png" ToolTip="Modificar" Width="40px" />
+                                <asp:LinkButton ID="lnkModificar" runat="server" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex %>" >Modificar</asp:LinkButton>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:ImageButton ID="imgEliminar" runat="server" CommandName="Eliminar" Height="32px" ImageUrl="~/images/Remove-Male-User-icon.png" ToolTip="Eliminar" Width="40px" />
+                                <asp:LinkButton ID="lnkEliminar" runat="server" CommandName="Eliminar" CommandArgument="<%# Container.DataItemIndex %>">Eliminar</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -86,12 +91,6 @@
         </tr>
     </table>
         </div>
-    <div>
-
-
-        <br />
-
-
-    </div>
+    
 </asp:Content>
 

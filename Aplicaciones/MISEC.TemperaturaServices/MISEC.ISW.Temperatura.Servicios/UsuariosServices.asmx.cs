@@ -36,7 +36,7 @@ namespace MISEC.ISW.Temperatura.Servicios
         }
 
         [WebMethod(Description = "Inserta usuario en la BD")]
-        public void InsertaUsuario(string IdUsuario, string Password,int Nivel)
+        public int InsertaUsuario(string IdUsuario, string Password,int Nivel)
         {
             dbControlManager db = new dbControlManager();
             var idInsertado = db.Usuario.InsertWithIdentity(() => new dbControl.Usuario
@@ -45,6 +45,7 @@ namespace MISEC.ISW.Temperatura.Servicios
                 Password = Password,
                 Nivel=Nivel
             });
+            return Convert.ToInt32(idInsertado);
         }
         
         [WebMethod(Description = "Actualiza usuario en la BD")]

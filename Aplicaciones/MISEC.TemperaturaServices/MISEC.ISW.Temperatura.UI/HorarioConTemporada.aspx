@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sensado.master" AutoEventWireup="true" CodeFile="Horario.aspx.cs" Inherits="Horario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sensado.master" AutoEventWireup="true" CodeFile="HorarioConTemporada.aspx.cs" Inherits="HorarioConTemporada" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -23,7 +23,7 @@
             <td colspan="2">
                 <div class="title">
 				<h1>CONTROL DE SETPOINT</h1>
-				<span class="byline">horario</span></div>
+				<span class="byline">horario de la temporada</span></div>
             </td>
         </tr>
         <tr>

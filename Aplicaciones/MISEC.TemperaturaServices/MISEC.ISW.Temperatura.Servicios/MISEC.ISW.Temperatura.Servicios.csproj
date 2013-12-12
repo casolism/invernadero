@@ -20,11 +20,6 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <UseIISExpress>false</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,7 +64,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConsultasServices.asmx" />
     <Content Include="SetPointServices.asmx" />
     <Content Include="SensorServices.asmx" />
     <Content Include="TemporadaServices.asmx" />
@@ -85,11 +79,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultasServices.asmx.cs">
-      <DependentUpon>ConsultasServices.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DTO\BitacoraDTO.cs" />
     <Compile Include="DTO\UsuarioDTO.cs" />
     <Compile Include="DTO\HorarioDTO.cs" />
     <Compile Include="DTO\TemporadaDTO.cs" />

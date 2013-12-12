@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UsuariosServices;
 
 public partial class CtrlUsuarios : System.Web.UI.Page
 {
@@ -18,17 +19,15 @@ public partial class CtrlUsuarios : System.Web.UI.Page
     void ConsultarUsuarios()
     {
         try
-        {
-            DataSet ds = new DataSet();
+        {   UsuariosServices.UsuariosServicesSoapClient ws = new UsuariosServices.UsuariosServicesSoapClient();
+            IList<UsuarioDTO> usuario = ws.ObtieneUsuarios();
 
-            ds.ReadXml(Server.MapPath("xml/Usuarios.xml"));
-
-            GridUsuarios.DataSource = ds.Tables[0];
+            GridUsuarios.DataSource = usuario;
             GridUsuarios.DataBind();
         }
-        catch (UnauthorizedAccessException)
+        catch (Exception varEx)
         {
-
+            lblMensaje.Text = varEx.Message;
         }
     }
 
@@ -48,5 +47,52 @@ public partial class CtrlUsuarios : System.Web.UI.Page
 
         }
 
+    }
+    protected void btnRegistrar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            UsuariosServices.UsuariosServicesSoapClient ws = new UsuariosServices.UsuariosServicesSoapClient();
+            ws.InsertaUsuario(txtUsuario.Text, txtPassword.Text, int.Parse(cmbNiveles.SelectedItem.ToString().Substring(1, 1)));
+            
+            lblMensaje.Text = "Usuario registrado";
+ 
+        }
+        catch(Exception varEx)
+        {
+            lblMensaje.Text = varEx.Message;
+        }
+
+    }
+    protected void GridUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        try
+        {
+            int index = int.Parse(e.CommandArgument.ToString());
+            GridViewRow r = GridUsuarios.Rows[index];
+            string idusuario = r.Cells[0].Text.ToString().Trim();
+
+            //Modificar usuario
+            if (e.CommandName == "Modificar")
+            {
+                Response.Redirect("ModificarUsuario.aspx?idUsuario=" + idusuario);
+            }
+
+
+            //eliminar usuario
+            if (e.CommandName == "Eliminar")
+            {
+                UsuariosServices.UsuariosServicesSoapClient ws = new UsuariosServices.UsuariosServicesSoapClient();
+                if (ws.EliminaUsuario(idusuario))
+                {
+                    lblMensaje.Text = "Usuario Eliminado!!";
+                    ConsultarUsuarios();
+                }
+            }
+        }
+        catch (Exception varEx)
+        {
+            lblMensaje.Text = varEx.Message;
+        }
     }
 }

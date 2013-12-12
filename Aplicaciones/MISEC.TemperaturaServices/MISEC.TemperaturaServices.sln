@@ -30,9 +30,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MISEC.ISW.Temperatura.UI", 
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "3394"
 	EndProjectSection
-	ProjectSection(ProjectDependencies) = postProject
-		{EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC} = {EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -30,7 +30,7 @@
 			<ul>
                 <li class="current_page_item"><a href="Principal.aspx" accesskey="1" title="">INICIO</a></li>
                 <li><a href="CtrlUsuarios.aspx" accesskey="2" title="">USUARIOS</a></li>
-				<li><a href="ConsBitacora.aspx" accesskey="3" title="">BITACORA</a></li>
+				<li><a href="MenuBitacora.aspx" accesskey="3" title="">BITACORA</a></li>
 				<li><a href="MenuMonitoreo.aspx" accesskey="4" title="">MONITOREO</a></li>
                 <li><a href="CtrlSetPoints.aspx" accesskey="5" title="">SET POINTS</a></li>
                 <li><a href="CerrarSesion.aspx" accesskey="6" title="">SALIR</a></li>
@@ -38,7 +38,8 @@
 		</div>
 	</div>
 </div>
-<div>&nbsp;</div>
+<div>&nbsp;<asp:Label ID="lblUsuario" runat="server" Font-Size="Large"></asp:Label>
+        </div>
 
         <div id="wrapper">
         <div id="page" class="container">
