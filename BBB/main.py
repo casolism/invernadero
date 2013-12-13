@@ -5,4 +5,5 @@ InvernaderoMISEC = Invernadero()
 while 1:
 	InvernaderoMISEC.Sensar()
 	InvernaderoMISEC.ComparaSetPoints()
-	time.sleep(0.001)
+	InvernaderoMISEC.RevisaStatusDispositivos()
+	time.sleep(0.01)

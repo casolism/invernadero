@@ -13,10 +13,8 @@ class Invernadero:
 	Ilum = 0
 	HistT = 2
 	HistI = 1
-	LowTemp=0
-	HighTemp=0
-	LowIlum=0
-	HighIlum=0
+	stTemp="Normal"
+	stIlum="Normal"
 	destinatarioCorreo = "ca_solis@hotmail.com"
 	correo = Mail()
 	statusVentilador="Apagado"
@@ -42,43 +40,49 @@ class Invernadero:
 		self.svr.Ilum = self.Ilum
 	def ComparaSetPoints(self):
 		if (self.svr.statusSetPoint=="Establecido"):
-			if (self.Temp<self.svr.SPTemp-HistT):
-				self.LowTemp=1
+			if (self.Temp<self.svr.SPTemp-self.HistT):
+				self.stTemp="Low"
+				#print "LOW TEMP " + str(self.Temp)
 			else:
-				self.LowTemp=0							
-			if (self.Temp>self.svr.SPTemp+HistT):
-				self.HighTemp=1
-			else:
-				self.HighTemp=0
-			if (self.Ilum<self.svr.SPIlum-HistI):
-				self.LowIlum=1
+				if (self.Temp>self.svr.SPTemp+self.HistT):
+					self.stTemp="High"
+					#print "HIGH TEMP" + str(self.Temp)
+				else:
+					self.stTemp="Normal"
+			if (self.Ilum<self.svr.SPIlum-self.HistI):
+				self.stIlum="Low"
+				#print "Low light"
 			else:			
-				self.LowIlum=0
-			if (self.Ilum>self.svr.SPIlum+HistI):
-				self.HighIlum=1
-			else:
-				self.HighIlum=0
-		if (self.LowTemp==1 or self.HighTemp==1):
+				if (self.Ilum>self.svr.SPIlum+self.HistI):
+					self.stIlum="High"
+				else:
+					self.stIlum="Normal"
+		if (self.stTemp!="Normal"):
 			self.t.Disable()
 		else:
 			self.t.Enable()
 	def RevisaStatusDispositivos(self):
-		if (self.LowTemp==1 && self.statusCalentador=="Apagado")
-			self.statusCalentador="Encendido"
-			print "Encdiende calentador"
-		if (self.HighTemp==1 && self.statusVentilador=="Apagado")
-			self.statusVentilador="Encendido"
-			print "Enciende ventilador"
-		if (self.LowIlum==1 && self.statusLuz=="Apagado")
-			self.statusLuz="Encendido"
-			print "Enciende luz"
-		if (self.LowTemp==0 && self.statusCalentador=="Encendido")
+		if (self.stTemp=="Normal" and self.statusCalentador=="Encendido"):
 			self.statusCalentador="Apagado"
-			print "Apaga calentador"
-		if (self.HighTemp==0 && self.statusVentilador=="Encendido")
+			print "++++++++++++++++++++ Apaga calentador +++++++++++++++++++++++"
+		if (self.stTemp=="Normal" and self.statusVentilador=="Encendido"):
 			self.statusVentilador="Apagado"
-			print "Apaga ventilador"
-		if (self.LowIlum==0 && self.statusLuz=="Encendido")
+			print "++++++++++++++++++++ Apaga ventilador +++++++++++++++++++++++"
+		if (self.stIlum=="Normal" and self.statusLuz=="Encendido"):
 			self.statusLuz="Apagado"
-			print "Apaga luz"
+			print "++++++++++++++++++++ Apaga luz +++++++++++++++++++++++"
+		if (self.stTemp=="Low" and self.statusCalentador=="Apagado"):
+			self.statusCalentador="Encendido"
+			self.statusVentilador="Apagado"
+			print "++++++++++++++++++++ Enciende calentador +++++++++++++++++++++++"
+		if (self.stTemp=="High" and self.statusVentilador=="Apagado"):
+			self.statusVentilador="Encendido"
+			self.statusCalentador="Apagado"
+			print "++++++++++++++++++++ Enciende ventilador ++++++++++++++++++++"
+		if (self.stIlum=="Low" and self.statusLuz=="Apagado"):
+			self.statusLuz="Encendido"
+			print "++++++++++++++++++++ Enciende luz ++++++++++++++++++++"
+		if (self.stIlum=="High" and self.statusLuz=="Encendido"):
+			self.statusLuz="Apagado"
+			print "++++++++++++++++++++ Apaga luz ++++++++++++++++++++"
 		

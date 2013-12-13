@@ -33,7 +33,7 @@ class TCPServer:
 					v = data.split('{')[1]
 					self.SPTemp = float(v.split('|')[0])
 					self.SPIlum = float(v.split('|')[1])
-					statusSetPoint = "Establecido"
+					self.statusSetPoint = "Establecido"
 					print ("Configurar Set points T " + str(self.SPTemp))
 					print ("Configurar Set points I " + str(self.SPIlum))
 		except socket.error:

@@ -9,8 +9,14 @@ class ADC:
 		AD.setup()
 		print("ADC pin " + str(pin) + " iniciado")
 	def getTemperatura(self):
-		valor = AD.read("P9_" + str(self.pin))*5
+		while 1:
+			valor = AD.read("P9_" + str(self.pin))*25
+			if (valor>.001):
+				break;
 		return valor
 	def getIluminacion(self):
-		valor = AD.read("P9_" + str(self.pin))*30
+		while 1:
+			valor = AD.read("P9_" + str(self.pin))*8
+			if (valor>.001):
+				break;
 		return valor
