@@ -63,7 +63,7 @@
                 </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" ValidationGroup="ValSetpoint" OnClick="btnRegistrar_Click"/>
-            </td>
+            &nbsp;&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style5" colspan="4">

@@ -9,7 +9,10 @@ public partial class Sensado : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["usuario"] == null)
+            Response.Redirect("Default.aspx");
+        else
+            lblUsuario.Text = "Usuario [" + Session["usuario"].ToString() +"]";
     }
     protected void LinkButton1_Click(object sender, EventArgs e)
     {

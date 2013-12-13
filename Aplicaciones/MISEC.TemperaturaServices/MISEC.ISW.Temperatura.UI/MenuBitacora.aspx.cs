@@ -13,6 +13,16 @@ public partial class MenuBitacora : System.Web.UI.Page
     }
     protected void btnBitacoraAccesos_Click(object sender, EventArgs e)
     {
-        Response.Redirect("BotacoraAccesos.aspx");
+        Response.Redirect("BitacoraAccesos.aspx");
+    }
+    protected void btnControlProcesos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BitacoraProcesos.aspx");
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BitacoraSetpoints.aspx");
+
     }
 }

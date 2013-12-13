@@ -7,8 +7,8 @@
         <tr>
             <td colspan="3">
                 <div class="title">
-				    <h1>CONTROL DE SETPOINTS</h1>
-               </div>
+				<h1>CONTROL DE SETPOINTS</h1>
+				<span class="byline">TEMPORADA-HORARIO   |   HORARIO    |    LIBRE</span></div>
             </td>
         </tr>
         <tr>

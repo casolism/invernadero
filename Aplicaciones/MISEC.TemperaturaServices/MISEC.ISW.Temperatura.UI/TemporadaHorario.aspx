@@ -39,14 +39,26 @@
         </tr>
         <tr>
             <td colspan="2">
+                <asp:Label ID="lblMensaje" runat="server" Font-Bold="True" ForeColor="#CC9900"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <asp:GridView ID="GridTemporadas" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnRowCommand="GridTemporadas_RowCommand">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="idtemporada" HeaderText="ID" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                        <asp:TemplateField HeaderText="Acciones">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkModificar" runat="server" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex %>">Modificar</asp:LinkButton>
+                                &nbsp;&nbsp;&nbsp;
+                                <asp:LinkButton ID="lnkEliminar" runat="server" CommandName="Eliminar">Eliminar</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkHorarios" runat="server" CommandName="Horario" CommandArgument="<%# Container.DataItemIndex %>">Horarios</asp:LinkButton>
+                                <asp:LinkButton ID="lnkHorarios" runat="server" CommandName="Horario" CommandArgument="<%# Container.DataItemIndex %>">Horario temporada</asp:LinkButton>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
@@ -56,13 +68,6 @@
                                 &nbsp;&nbsp;&nbsp;<asp:LinkButton ID="lnkDesactivar" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="Desactivar">Desactivar</asp:LinkButton>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkModificar" runat="server" CommandName="Modificar" CommandArgument="<%# Container.DataItemIndex %>">Modificar</asp:LinkButton>
-                                &nbsp;&nbsp;&nbsp;
-                                <asp:LinkButton ID="lnkEliminar" runat="server" CommandName="Eliminar">Eliminar</asp:LinkButton>
-                            </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />

@@ -17,7 +17,7 @@ namespace MISEC.ISW.Temperatura.Datos
             public string Password;
             public int Nivel;
         }
-        
+
         [TableName("Bitacora")]
         public class Bitacora
         {
@@ -29,9 +29,9 @@ namespace MISEC.ISW.Temperatura.Datos
             public string Tipo;
             public string IdUsuario;
             [Association(ThisKey = "IdUsuario", OtherKey = "IdUsuario", CanBeNull = false)]
-            public Usuario Usuario;        
-        }        
-        
+            public Usuario Usuario;
+        }
+
         [TableName("Sensor")]
         public class Sensor
         {
@@ -83,7 +83,8 @@ namespace MISEC.ISW.Temperatura.Datos
         }
 
         [TableName("Temporada")]
-        public class Temporada { 
+        public class Temporada
+        {
             [PrimaryKey, Identity]
             public int IdTemporada;
             [NotNull]

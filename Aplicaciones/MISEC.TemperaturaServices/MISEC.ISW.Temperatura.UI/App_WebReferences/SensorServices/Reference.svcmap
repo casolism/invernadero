@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd48f996-65b1-46e1-bd47-fcb4b1fc11a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc971a48-0286-4a61-b894-1335904e974d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,8 +21,8 @@
     <MetadataSource Address="http://localhost:23053/SensorServices.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SensorServices.wsdl" MetadataType="Wsdl" ID="5953e04c-91a0-4e67-9262-c48da2fa65f9" SourceId="1" SourceUrl="http://localhost:23053/SensorServices.asmx?wsdl" />
-    <MetadataFile FileName="SensorServices.disco" MetadataType="Disco" ID="1f1654c6-45a2-436a-855c-5366e0bc1a0c" SourceId="1" SourceUrl="http://localhost:23053/SensorServices.asmx?disco" />
+    <MetadataFile FileName="SensorServices.wsdl" MetadataType="Wsdl" ID="2c358e65-33f0-49b8-95cd-c44b22fc00f6" SourceId="1" SourceUrl="http://localhost:23053/SensorServices.asmx?wsdl" />
+    <MetadataFile FileName="SensorServices.disco" MetadataType="Disco" ID="7554fef9-8ae2-4421-b384-7c55437f73f2" SourceId="1" SourceUrl="http://localhost:23053/SensorServices.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

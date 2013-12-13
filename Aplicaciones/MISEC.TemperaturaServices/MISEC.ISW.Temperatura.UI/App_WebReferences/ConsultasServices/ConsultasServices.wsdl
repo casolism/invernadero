@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ObtenerBitacoraAccesos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Inicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBitacoraAccesosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBitacoraAccesosResult" type="tns:ArrayOfBitacoraDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBitacoraDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BitacoraDTO" nillable="true" type="tns:BitacoraDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BitacoraDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idBitacora" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerBitacoraProcesos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PUF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Proceso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Inicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBitacoraProcesosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBitacoraProcesosResult" type="tns:ArrayOfBitacoraDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBitacoraSetPoints">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MUF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Movimiento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Inicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBitacoraSetPointsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBitacoraSetPointsResult" type="tns:ArrayOfBitacoraDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSensado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Variable" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Inicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSensadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerSensadoResult" type="tns:ArrayOfSensorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSensorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SensorDTO" nillable="true" type="tns:SensorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SensorDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSensor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetPoint" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Variable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetPointEstado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EscribeBitacora">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EscribeBitacoraResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerBitacoraAccesosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraAccesos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBitacoraAccesosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraAccesosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBitacoraProcesosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraProcesos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBitacoraProcesosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraProcesosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBitacoraSetPointsSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraSetPoints" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBitacoraSetPointsSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBitacoraSetPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSensadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerSensado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSensadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerSensadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EscribeBitacoraSoapIn">
+    <wsdl:part name="parameters" element="tns:EscribeBitacora" />
+  </wsdl:message>
+  <wsdl:message name="EscribeBitacoraSoapOut">
+    <wsdl:part name="parameters" element="tns:EscribeBitacoraResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConsultasServicesSoap">
+    <wsdl:operation name="ObtenerBitacoraAccesos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene un listado de registros de bitacora por Accesos</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerBitacoraAccesosSoapIn" />
+      <wsdl:output message="tns:ObtenerBitacoraAccesosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraProcesos">
+      <wsdl:input message="tns:ObtenerBitacoraProcesosSoapIn" />
+      <wsdl:output message="tns:ObtenerBitacoraProcesosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraSetPoints">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene un listado de registros de bitacora por procesos</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerBitacoraSetPointsSoapIn" />
+      <wsdl:output message="tns:ObtenerBitacoraSetPointsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSensado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene un listado de registros de bitacora por Setpoints</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSensadoSoapIn" />
+      <wsdl:output message="tns:ObtenerSensadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EscribeBitacora">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Escribe un registro de bitacora</wsdl:documentation>
+      <wsdl:input message="tns:EscribeBitacoraSoapIn" />
+      <wsdl:output message="tns:EscribeBitacoraSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultasServicesSoap" type="tns:ConsultasServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBitacoraAccesos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerBitacoraAccesos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraProcesos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerBitacoraProcesos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraSetPoints">
+      <soap:operation soapAction="http://tempuri.org/ObtenerBitacoraSetPoints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSensado">
+      <soap:operation soapAction="http://tempuri.org/ObtenerSensado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EscribeBitacora">
+      <soap:operation soapAction="http://tempuri.org/EscribeBitacora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultasServicesSoap12" type="tns:ConsultasServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBitacoraAccesos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerBitacoraAccesos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraProcesos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerBitacoraProcesos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBitacoraSetPoints">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerBitacoraSetPoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSensado">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerSensado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EscribeBitacora">
+      <soap12:operation soapAction="http://tempuri.org/EscribeBitacora" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultasServices">
+    <wsdl:port name="ConsultasServicesSoap" binding="tns:ConsultasServicesSoap">
+      <soap:address location="http://localhost:23053/ConsultasServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultasServicesSoap12" binding="tns:ConsultasServicesSoap12">
+      <soap12:address location="http://localhost:23053/ConsultasServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
