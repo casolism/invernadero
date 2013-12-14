@@ -25,7 +25,7 @@ class Invernadero:
 	Ventilador = GPIO(12)
 	Calentador = GPIO(11)
 	Luz = GPIO(13)
-	#cloud = XivelyClass()
+	cloud = XivelyClass()
 
 	def __init__(self):
 		self.svr = TCPServer()
@@ -38,8 +38,8 @@ class Invernadero:
 		self.Ilum =	self.ADCIlum.getIluminacion()
 		self.svr.Temp = self.Temp
 		self.svr.Ilum = self.Ilum
-		#self.cloud.GuardaTemperatura(self.Temp)
-		#self.cloud.GuardaIluminacion(self.Ilum)
+		self.cloud.GuardaTemperatura(self.Temp)
+		self.cloud.GuardaIluminacion(self.Ilum)
 	def ComparaSetPoints(self):
 		if (self.svr.statusSetPoint=="Establecido"):
 			if (self.Temp<self.svr.SPTemp-self.HistT):
@@ -48,7 +48,7 @@ class Invernadero:
 			else:
 				if (self.Temp>self.svr.SPTemp+self.HistT):
 					self.stTemp="High"
-					#self.correo.sendMail(str(self.Temp),self.destinatarioCorreo)
+					self.correo.sendMail(str(self.Temp),self.destinatarioCorreo)
 					#print "HIGH TEMP" + str(self.Temp)
 				else:
 					if (self.statusVentilador=="Encendido" and self.Temp > self.svr.SPTemp):

@@ -1,11 +1,16 @@
+from ADC import ADC
 from flask import Flask, render_template
 app=Flask(__name__) 
 import datetime 
 @app.route("/") 
 def index():
+	ADCTemp = ADC(39)
+	ADCIlum = ADC(40)
+	Temp = str(ADCTemp.getTemperatura())
+	Ilum = str(ADCIlum.getIluminacion())
 	now = datetime.datetime.now()
 	timeString = now.strftime("%Y-%m-%d %H:%M")
-	templateData = {'title': 'Hello', 'time': timeString}
+	templateData = {'time': timeString,'Temp': Temp, 'Ilum': Ilum}
 	return render_template("web.html", **templateData)
 @app.route("/acercade")
 def acercade():
