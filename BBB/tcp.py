@@ -40,5 +40,5 @@ class TCPServer:
 			data = "."
 		if (self.status=="Conectado"):
 			self.conn.sendall("{" + str(self.Temp) + "|" + str(self.Ilum)) # Envia informacion por TCP
-			print("{" + str(self.Temp) + "|" + str(self.Ilum))
+			#print("{" + str(self.Temp) + "|" + str(self.Ilum))
 			threading.Timer(1.0, self.Run).start()

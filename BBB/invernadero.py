@@ -11,8 +11,8 @@ class Invernadero:
 	ADCIlum = ADC(40)
 	Temp = 0
 	Ilum = 0
-	HistT = 2
-	HistI = 1
+	HistT = 0.2
+	HistI = 0.1
 	stTemp="Normal"
 	stIlum="Normal"
 	destinatarioCorreo = "ca_solis@hotmail.com"
@@ -20,6 +20,8 @@ class Invernadero:
 	statusVentilador="Apagado"
 	statusCalentador="Apagado"
 	statusLuz="Apagado"
+	tempFueraRango=1
+	ilumFueraRango=1
 	#cloud = XivelyClass()
 
 	def __init__(self):
@@ -28,17 +30,22 @@ class Invernadero:
 		self.t = Timer(self.svr)
 		self.t.Start()
 		self.t.Enable()
-	def test(self):
-		self.correo.sendMail(str(self.ADCTemp.getTemperatura()),destinatarioCorreo)
-		self.cloud.GuardaTemperatura(self.ADCTemp.getTemperatura())
-		self.cloud.GuardaIluminacion(self.ADCIlum.getIluminacion())
-
 	def Sensar(self):
 		self.Temp = self.ADCTemp.getTemperatura()
 		self.Ilum =	self.ADCIlum.getIluminacion()
 		self.svr.Temp = self.Temp
 		self.svr.Ilum = self.Ilum
+		#self.cloud.GuardaTemperatura(self.Temp)
+		#self.cloud.GuardaIluminacion(self.Ilum)
 	def ComparaSetPoints(self):
+		if (self.tempFueraRango==1):
+			self.HistT=0.2
+		else:
+			self.HistT=2
+		if (self.ilumFueraRango==1):
+			self.HistI=0.1
+		else:
+			self.HistI=1
 		if (self.svr.statusSetPoint=="Establecido"):
 			if (self.Temp<self.svr.SPTemp-self.HistT):
 				self.stTemp="Low"
@@ -46,6 +53,7 @@ class Invernadero:
 			else:
 				if (self.Temp>self.svr.SPTemp+self.HistT):
 					self.stTemp="High"
+					#self.correo.sendMail(str(self.Temp),self.destinatarioCorreo)
 					#print "HIGH TEMP" + str(self.Temp)
 				else:
 					self.stTemp="Normal"
@@ -59,8 +67,14 @@ class Invernadero:
 					self.stIlum="Normal"
 		if (self.stTemp!="Normal"):
 			self.t.Disable()
+			self.tempFueraRango=1
 		else:
 			self.t.Enable()
+			self.tempFueraRango=0			
+		if (self.stIlum!="Normal"):
+			self.ilumFueraRango=1
+		else:
+			self.ilumFueraRango=0			
 	def RevisaStatusDispositivos(self):
 		if (self.stTemp=="Normal" and self.statusCalentador=="Encendido"):
 			self.statusCalentador="Apagado"
