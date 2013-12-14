@@ -161,6 +161,14 @@ namespace MISEC.ISW.Temperatura.Servicios
             db.SetPoint.Where(e => e.IdHorario == IdHorario).Set(e => e.Activo, valor).Update();
         }
 
+        [WebMethod(Description = "Activa o descativa setpoints por IdSetPoint")]
+        public void ActivaSetPoint(int IdSetpoint, bool Activar)
+        {
+            dbControlManager db = new dbControlManager();
+            string valor = Activar ? "S" : "N";
+            db.SetPoint.Where(e => e.IdSetPoint == IdSetpoint).Set(e => e.Activo, valor).Update();
+        }
+
         [WebMethod(Description = "Actualiza Temporada en la BD")]
         public bool ActualizaHorario(string Descripcion, DateTime HoraInicio, DateTime HoraFin, int IdTemporada)
         {

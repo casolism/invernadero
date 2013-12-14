@@ -34,6 +34,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MISEC.ISW.Temperatura.UI", 
 		{EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC} = {EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Escritorio", "Escritorio", "{58E06E6A-518F-463E-BF60-B50FB1F61A1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitoreo_temperaruta_escritorio", "Monitoreo_temperaruta_escritorio\Monitoreo_temperaruta_escritorio.csproj", "{1D900209-E0FE-4959-9B5F-B6035F64F7A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC} = {EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +59,10 @@ Global
 		{BC93DABC-CC27-4E7E-8895-B1B4C59C6F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC93DABC-CC27-4E7E-8895-B1B4C59C6F4A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC93DABC-CC27-4E7E-8895-B1B4C59C6F4A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1D900209-E0FE-4959-9B5F-B6035F64F7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D900209-E0FE-4959-9B5F-B6035F64F7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D900209-E0FE-4959-9B5F-B6035F64F7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D900209-E0FE-4959-9B5F-B6035F64F7A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +71,6 @@ Global
 		{9EC773DD-2640-4A5B-BA76-F26DEF7CA6E8} = {FBC270A4-977F-482F-A4D7-5046D2D07BD7}
 		{EEC0BB73-BD0E-4DEF-BA53-D9A524D2F5BC} = {F6BC7BE0-B6EE-41BD-8D55-1E08C89C84D5}
 		{BC93DABC-CC27-4E7E-8895-B1B4C59C6F4A} = {59EDFCD2-945B-487E-B5D3-7BA2F83C8157}
+		{1D900209-E0FE-4959-9B5F-B6035F64F7A4} = {58E06E6A-518F-463E-BF60-B50FB1F61A1C}
 	EndGlobalSection
 EndGlobal
