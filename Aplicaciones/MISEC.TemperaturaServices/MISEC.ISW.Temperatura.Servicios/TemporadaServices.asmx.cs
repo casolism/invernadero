@@ -120,15 +120,16 @@ namespace MISEC.ISW.Temperatura.Servicios
             dbControlManager db = new dbControlManager();
             List<HorarioDTO> lista = new List<HorarioDTO>();
             var query =
+                    from t in db.Temporada
                     from h in db.Horario
-                    where h.IdTemporada == IdTemporada
+                    where t.IdTemporada==h.IdTemporada && h.IdTemporada == IdTemporada
                     select new
                     {
                         h.IdHorario,
                         h.Descripcion,
                         h.Inicio,
                         h.Fin,
-                        TemporadaDescripcion = h.Descripcion
+                        TemporadaDescripcion = t.Descripcion
                     };
             foreach (var item in query)
             {
@@ -137,7 +138,7 @@ namespace MISEC.ISW.Temperatura.Servicios
                     Descripcion = item.Descripcion,
                     IdHorario = item.IdHorario,
                     Inicio = item.Inicio,
-                    Fin = item.Inicio,
+                    Fin = item.Fin,
                     TemporadaDescripcion = item.TemporadaDescripcion
                 });
             }

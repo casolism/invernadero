@@ -82,7 +82,33 @@ namespace MISEC.ISW.Temperatura.Servicios
         public bool EliminaSensado(int IdSensor)
         {
             return (new dbControlManager().Sensor.Where(e => e.IdSensor == IdSensor).Delete()) > 0;
-        }  
+        }
+
+        private string InsertaTemperatura(double valor)
+        {
+            AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
+            List<dbControl.SetPoint> lista = new dbControlManager().SetPoint.Where(c => c.Variable == "Temperatura" && c.Activo=="S" && valor > c.limiteMin && valor <= c.limiteMax).ToList();
+            if (lista.Count < 1)
+                return "";
+            else
+            {
+                InsertaSensado(valor,DateTime.Now, lista[0].IdSetPoint);
+                return lista[0].Estado;
+            }
+        }
+
+        private string InsertaIluminacion(double valor)
+        {
+            AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
+            List<dbControl.SetPoint> lista = new dbControlManager().SetPoint.Where(c => c.Variable == "Iluminacion" && c.Activo == "S" && valor > c.limiteMin && valor <= c.limiteMax).ToList();
+            if (lista.Count < 1)
+                return "";
+            else
+            {
+                InsertaSensado(valor, DateTime.Now, lista[0].IdSetPoint);
+                return lista[0].Estado;
+            }
+        }
 
     }
 }

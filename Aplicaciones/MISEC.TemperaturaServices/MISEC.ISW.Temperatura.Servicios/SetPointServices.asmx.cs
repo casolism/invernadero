@@ -36,11 +36,31 @@ namespace MISEC.ISW.Temperatura.Servicios
         }
 
         [WebMethod(Description = "Inserta setpoint en la BD")]
-        public int InsertaSetPoint(string Variable, double LimiteMin,double LimiteMax, string Estado)
+        public int InsertaSetPoint(string Variable, double LimiteMin, double LimiteMax, string Estado)
         {
             dbControlManager db = new dbControlManager();
-            var idInsertado = db.SetPoint.InsertWithIdentity(() => new dbControl.SetPoint { Variable = Variable, limiteMin = LimiteMin,
-                                                                                            limiteMax = LimiteMax,Estado=Estado });
+            var idInsertado = db.SetPoint.InsertWithIdentity(() => new dbControl.SetPoint
+            {
+                Variable = Variable,
+                limiteMin = LimiteMin,
+                limiteMax = LimiteMax,
+                Estado = Estado
+            });
+            return Convert.ToInt32(idInsertado);
+        }
+
+        [WebMethod(Description = "Inserta setpoint en la BD")]
+        public int InsertaSetPointHorario(int IdHorario, string Variable, double LimiteMin, double LimiteMax, string Estado)
+        {
+            dbControlManager db = new dbControlManager();
+            var idInsertado = db.SetPoint.InsertWithIdentity(() => new dbControl.SetPoint
+            {
+                Variable = Variable,
+                limiteMin = LimiteMin,
+                limiteMax = LimiteMax,
+                Estado = Estado,
+                IdHorario = IdHorario
+            });
             return Convert.ToInt32(idInsertado);
         }
 
