@@ -84,7 +84,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             return (new dbControlManager().Sensor.Where(e => e.IdSensor == IdSensor).Delete()) > 0;
         }
 
-        private string InsertaTemperatura(double valor)
+        [WebMethod(Description = "Inserta Temperatura en la BD")]
+        public string InsertaTemperatura(double valor)
         {
             AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
             List<dbControl.SetPoint> lista = new dbControlManager().SetPoint.Where(c => c.Variable == "Temperatura" && c.Activo=="S" && valor > c.limiteMin && valor <= c.limiteMax).ToList();
@@ -97,7 +98,8 @@ namespace MISEC.ISW.Temperatura.Servicios
             }
         }
 
-        private string InsertaIluminacion(double valor)
+        [WebMethod(Description = "Inserta Iluminación en la BD")]
+        public string InsertaIluminacion(double valor)
         {
             AutoMapper.Mapper.CreateMap<dbControl.SetPoint, SetPointDTO>();
             List<dbControl.SetPoint> lista = new dbControlManager().SetPoint.Where(c => c.Variable == "Iluminacion" && c.Activo == "S" && valor > c.limiteMin && valor <= c.limiteMax).ToList();
