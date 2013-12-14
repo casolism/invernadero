@@ -3,14 +3,13 @@ import Adafruit_BBIO.GPIO as IO
 
 import time
 class GPIO:
-	pinEntrada = 11
-	pinSalida = 12 
+	pin=0
+	def __init__(self,valor):
+		self.pin = valor
 	def setSalida(self,valor):
-		IO.setup("P8_" + str(self.pinSalida), IO.OUT)
+		IO.setup("P8_" + str(self.pin), IO.OUT)
 		if (valor=="1"):
-			IO.output("P8_" + str(self.pinSalida), IO.HIGH)
+			IO.output("P8_" + str(self.pin), IO.HIGH)
 		else:
-			IO.output("P8_" + str(self.pinSalida), IO.LOW)
-	def getEntrada(self):
-		IO.setup("P8_" + str(self.pinEntrada), IO.IN)
-		return str(IO.input("P8_" + str(self.pinEntrada)))
+			IO.output("P8_" + str(self.pin), IO.LOW)
+
